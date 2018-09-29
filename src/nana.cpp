@@ -19,8 +19,8 @@ using logging::Nana;
 
 namespace logging
 {
-    static const char * NANA_EMOTION[]={"_COMPLAIN_", "_PEACE_", "_HAPPY_"};
-    static pthread_mutex_t  GuardianAngel= PTHREAD_MUTEX_INITIALIZER;
+	
+    static pthread_mutex_t  GuardianAngel = PTHREAD_MUTEX_INITIALIZER;
     Nana* Nana :: nana_ = 0;
 
     Nana::Nana( const std::string & cradle, int emotion, int breakTime, int lifeLength )
@@ -76,7 +76,7 @@ namespace logging
 	    struct stat lifeStat; 
 	    if (stat(cradle_.c_str(), &lifeStat) < 0)
 	    {    
-            return 0;    
+               return 0;    
 	    }
 	    return lifeStat.st_size;
     }
@@ -85,7 +85,7 @@ namespace logging
 
     bool Nana::reborn( void )
     {
-		//the time format:"YYYY-MM-DD HH:MM:SS" 
+	    //the time format:"YYYY-MM-DD HH:MM:SS" 
 	    char curTime[24];
 	    time_t now;
 	    struct tm *localTime;
@@ -117,8 +117,8 @@ namespace logging
 	        char timeBuffer[60]={0};
 	        time_t now;
 	        struct tm *loctime;
-                printf("###");
-	        pthread_mutex_lock(&GuardianAngel);
+                
+	        pthread_mutex_lock( &GuardianAngel );
 	        if ( lifeLength() > lifeLength_ )
 	        {
 		        if ( reborn() == false )
@@ -132,7 +132,7 @@ namespace logging
 	        loctime = localtime(&now);
 	        char speak[1024]={0};
 	        strftime ( timeBuffer, sizeof(timeBuffer), "%F %T : ", loctime );
-	        int said = snprintf( speak, sizeof(speak),"%s %-15s : %-8s : ", timeBuffer, toWho, NANA_EMOTION[emotion] );
+	        int said = snprintf( speak, sizeof(speak),"%s %-15s : __%-8s__ : ", timeBuffer, toWho, Nana::Emotions[emotion] );
 	        said += vsnprintf( speak+said, sizeof(speak)-said, about, valist );
 	        char *prev = now_;
     			
