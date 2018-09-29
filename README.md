@@ -8,12 +8,13 @@ Nana's Emotions equivalent to the logging level:DEBUG, INFO ,ERROR.<br/>
 
 ## 2. Understand the emotion of Nana
 
----Make the logging personate.<br/> 
+Make the logging personate.<br/> 
 emotion of nana is the logging level like the common logging module
 
-HAPPY->DEBUG
-PEACE->INFO
-COMPLAIN->ERROR
+###Logging Level Map
+HAPPY->DEBUG<br/>
+PEACE->INFO<br/>
+COMPLAIN->ERROR<br/>
 
 ## 3. Sample Code
 -----------
@@ -28,7 +29,8 @@ COMPLAIN->ERROR
  int main( int argc, char ** argv )
  {
       Nana * nana = Nana::born( "nana.log", Nana::HAPPY, BREAK_TIME, LIFE_LENGTH );
-      nana->say( Nana::HAPPY, __func__, "A girl named nana born in this world with %s emotion", Nana::Emotions[Nana::HAPPY]);
+      nana->say( Nana::HAPPY, __func__, "A girl named nana born in this world with %s emotion",<br/> 
+                 Nana::Emotions[Nana::HAPPY]);
       nana->die();
       return 0;
   }
