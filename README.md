@@ -29,8 +29,7 @@ COMPLAIN->ERROR<br/>
  int main( int argc, char ** argv )
  {
       Nana * nana = Nana::born( "nana.log", Nana::HAPPY, BREAK_TIME, LIFE_LENGTH );
-      nana->say( Nana::HAPPY, __func__, "A girl named nana born in this world with %s emotion",
-                 Nana::Emotions[Nana::HAPPY]);
+      nana->say( Nana::HAPPY, __func__, "A girl named nana born in this world with %s emotion", "happy" );
       nana->die();
       return 0;
   }
