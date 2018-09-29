@@ -33,15 +33,14 @@ namespace logging
 		{
 			COMPLAIN = 0,
 			PEACE = 1,
-			HAPPY = 2
+			HAPPY = 2,
 		};
 		
-                static const char * Emtions[]={"COMPLAIN", "PEACE", "HAPPY"};
 		
 		/*
-			 NanaLife means the size of logging file
+	             LifeLength means the size of logging file
 		*/
-		enum NanaLife
+		enum LifeLength
 		{
 			KB = 1024,
 			MB = ((KB)*(KB)),
