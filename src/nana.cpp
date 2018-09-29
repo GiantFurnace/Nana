@@ -21,6 +21,7 @@ namespace logging
 {
 	
     static pthread_mutex_t  GuardianAngel = PTHREAD_MUTEX_INITIALIZER;
+    static const char * Emtions[]={"COMPLAIN", "PEACE", "HAPPY"};
     Nana* Nana :: nana_ = 0;
 
     Nana::Nana( const std::string & cradle, int emotion, int breakTime, int lifeLength )
@@ -132,7 +133,7 @@ namespace logging
 	        loctime = localtime(&now);
 	        char speak[1024]={0};
 	        strftime ( timeBuffer, sizeof(timeBuffer), "%F %T : ", loctime );
-	        int said = snprintf( speak, sizeof(speak),"%s %-15s : __%-8s__ : ", timeBuffer, toWho, Nana::Emotions[emotion] );
+	        int said = snprintf( speak, sizeof(speak),"%s %-15s : __%-8s__ : ", timeBuffer, toWho, Emotions[emotion] );
 	        said += vsnprintf( speak+said, sizeof(speak)-said, about, valist );
 	        char *prev = now_;
     			
