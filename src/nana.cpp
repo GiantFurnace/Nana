@@ -112,7 +112,7 @@ namespace logging
     void Nana::say( int emotion,  const char * toWho, const char *about, ... )
     {
 	    if ( emotion <= emotion_ )
-	   {
+	    {
 	        va_list valist;
 	        va_start(valist, about);
 	        char timeBuffer[60]={0};
