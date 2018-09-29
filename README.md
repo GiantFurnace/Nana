@@ -1,6 +1,6 @@
 # Logging Module Nana
 ---
-## 1. Abstract--
+## 1. Abstract
 make every everything personate.<br/> 
 what nana means?<br/>
 find the answer if you really want to know about the "nana".<br/>
