@@ -27,7 +27,7 @@ namespace logging
 	public:
 		typedef FILE * Life;
 		/*
-			NanaEmotion defines the logging level
+		    NanaEmotion defines the logging level
 		*/
 		enum NanaEmotion
 		{
@@ -38,7 +38,7 @@ namespace logging
 		
 		
 		/*
-	             LifeLength means the size of logging file
+	            LifeLength means the size of logging file
 		*/
 		enum LifeLength
 		{
@@ -48,13 +48,13 @@ namespace logging
 
 	public:
 		/*
-			born interface returns the singleton of nana
+		    born interface returns the singleton of nana
 		*/
 		static Nana *born( const std::string & cradle, int emotion, int breakTime, int lifeLength= 50*MB )
 		{
 			/*
-				it's not necessary to use the double-check and mutex lock,
-				construct nana in global.
+			    it's not necessary to use the double-check and mutex lock,
+			    construct nana in global.
 			*/
 			if ( ! nana_ )
 			{
@@ -64,19 +64,19 @@ namespace logging
 		}
 
 		/*
-			say interface means output the content to the logging file
+		    say interface means output the content to the logging file
 		*/
 		void say( int emotion, const char *toWho, const char *about, ...);
 		bool is( int emotion ) { return emotion <= emotion_; }
 
 		/*
 		    nana dies,when she don't logging anything any more
-    	*/
+    	        */
 		void die();
 	private:
 		/*
-			shutup interface means cache the content in memory,
-			you need to configure the break time when construct nana
+		    shutup interface means cache the content in memory,
+		    you need to configure the break time when construct nana
 		*/
 		void shutup();
 
