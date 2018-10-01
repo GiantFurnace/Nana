@@ -9,7 +9,7 @@ Nana's Emotions equivalent to the logging level:DEBUG, INFO ,ERROR.<br/>
 ## 2. Understand the emotion of Nana
 
 Make the logging personate.<br/> 
-emotion of nana is the logging level like the common logging module
+Emotion of nana is the logging level like the common logging module
 
 ### Logging Level Map
 HAPPY->DEBUG<br/>
