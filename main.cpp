@@ -8,7 +8,15 @@
 #include "nana.h"
 using logging::Nana;
 
-static const int BREAK_TIME = 5;
+/*
+ * @note:break time means cache logging data in memory
+ */
+static const int BREAK_TIME = 5; // 5 seconds
+
+/*
+ * @note:life length indicates the size of log file, when exceed the size of log file,
+   nana will generates a new
+ */
 static const int LIFE_LENGTH = 1024*1024*10;
 
 int main( int argc, char ** argv )
