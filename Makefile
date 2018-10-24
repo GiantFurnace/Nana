@@ -4,6 +4,7 @@
 
 INCLUDE_DIR:=./include
 SOURCE_DIR:=./src
+LIB_DIR:=./lib
 
 SUFFIX:=cpp
 vpath %.h $(INCLUDE_DIR)
@@ -15,10 +16,10 @@ CC1:=g++
 #define the optimize level of compiler
 OLEVEL=0
 LDCONFIG:=-lpthread
-COMPILER_FLAGS=-pg -g -W -Wall -Wextra -Wconversion -Wshadow
-CFLAGS:=-O$(OLEVEL) $(COMPILER_FLAGS) $(LDCONFIG)
+CFLAGS=-pg -g -W -Wall -Wextra -Wconversion -Wshadow -fPIC
 OBJS:=main nana 
 OBJS:=$(foreach obj,$(OBJS),$(obj).o)
+LIB_OBJS=nana.o
 
 INSTALL_DIR:=/usr/local/bin
 CONFIG_PATH:=
@@ -30,12 +31,13 @@ TAR_NAME=$(TARGET)-$(shell date +%Y%m%d)
 .PHONEY:install
 .PHONEY:test
 .PHONEY:tar
+.PHONEY:library
 
 all:$(TARGET)
 $(TARGET):$(OBJS)
-	$(CC1) -o $@ $^ $(CFLAGS)
+	$(CC1) -o $@ $^ $(LDCONFIG)
 $(OBJS):%.o:%.$(SUFFIX)
-	$(CC0) -o $@ -c $< -I$(INCLUDE_DIR)
+	$(CC0) -o $@ -c $< -I$(INCLUDE_DIR) $(CFLAGS)
 
 clean:
 	-rm -f *.o *.a *.so *.log *core* $(TARGET) *.tar.gz *.cppe *.out
@@ -46,7 +48,9 @@ install:
 	-rm -rf $(CONFIG_INSTALL_PATH)
 	-mkdir $(CONFIG_INSTALL_PATH)
 	-cp -f $(CONFIG_PATH)/* $(CONFIG_INSTALL_PATH)
-
+library:
+	$(CC1) -shared -o lib$(TARGET).so $(LIB_OBJS)
+	-mv lib$(TARGET).so $(LIB_DIR)
 test:
 	./$(TARGET)
 tar:
