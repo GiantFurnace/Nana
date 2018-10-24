@@ -22,10 +22,11 @@ namespace logging
 	
     static pthread_mutex_t  GuardianAngel = PTHREAD_MUTEX_INITIALIZER;
     static const char * Emotions[]={"__COMPLAIN__", "__PEACE__", "__HAPPY__"};
+    static const char * Normals[]={"__ERROR__", "__INFO__", "__DEBUG__"};
     Nana* Nana :: nana_ = 0;
 
-    Nana::Nana( const std::string & cradle, int emotion, int breakTime, int lifeLength )
-    :cradle_( cradle ), emotion_( emotion ), breakTime_( breakTime ), lifeLength_( lifeLength )
+    Nana::Nana( const std::string & cradle, int emotion, int breakTime, int life )
+    :cradle_( cradle ), emotion_( emotion ), breakTime_( breakTime ), lifeLength_( life ),normal_(false)
 
     {
 	    life_ = fopen( cradle_.c_str(), "w");
@@ -36,7 +37,7 @@ namespace logging
 
 	    setbuf( life_, NULL );
 	    memset( said_, 0, sizeof( said_ ) );
-            shutupTime_ = time( NULL );
+        shutupTime_ = time( NULL );
 	    now_ = said_;
 	    end_ = said_+sizeof(said_);
     }
@@ -48,11 +49,10 @@ namespace logging
         
         if ( life_ != 0 )
         {
-               
-               pthread_mutex_lock( &GuardianAngel );
-               fprintf( life_, said_ );
-	       fclose( life_ );
-               pthread_mutex_unlock( &GuardianAngel );
+			pthread_mutex_lock( &GuardianAngel );
+			fprintf( life_, said_ );
+			fclose( life_ );
+			pthread_mutex_unlock( &GuardianAngel );
         } 
 
         if ( nana_ != 0 )
@@ -109,10 +109,10 @@ namespace logging
 
 
 
-    void Nana::say( int emotion,  const char * toWho, const char *about, ... )
+    void Nana::say( int emotion,  const char * toWho, int location, const char *about, ... )
     {
 	    if ( emotion <= emotion_ )
-	    {
+	   {
 	        va_list valist;
 	        va_start(valist, about);
 	        char timeBuffer[60]={0};
@@ -132,8 +132,16 @@ namespace logging
 	        now = time ( NULL );
 	        loctime = localtime(&now);
 	        char speak[1024]={0};
-	        strftime ( timeBuffer, sizeof(timeBuffer), "%F %T : ", loctime );
-	        int said = snprintf( speak, sizeof(speak),"%s %-15s :%-8s: ", timeBuffer, toWho, Emotions[emotion] );
+	        strftime ( timeBuffer, sizeof(timeBuffer), "%F %T ", loctime );
+	        int said;
+            if ( ! normal_ )
+            {
+                said = snprintf( speak, sizeof(speak),"%s%-9s [%s@%d]: ", timeBuffer, Emotions[emotion], toWho, location);
+            }
+            else
+            {
+                said = snprintf( speak, sizeof(speak),"%s%-9s [%s@%d]: ", timeBuffer, Normals[emotion], toWho, location );
+            }
 	        said += vsnprintf( speak+said, sizeof(speak)-said, about, valist );
 	        char *prev = now_;
     			
@@ -169,9 +177,9 @@ namespace logging
 	    {
 	        if ( now_ > said_ )
 	        {
-		        fprintf( life_, said_ );
-		        now_ = said_;
-		        memset( said_, 0, 4*KB*9 );
+				fprintf( life_, said_ );
+				now_ = said_;
+				memset( said_, 0, 4*KB*9 );
 	        }
 	    }
 	    else
@@ -179,9 +187,9 @@ namespace logging
 	         time_t currentTime = time(NULL);
 	         if ( ((now_ - said_ ) >= (8*KB)) || ( currentTime-shutupTime_ ) >=(time_t) breakTime_ )
 	         {
-		          fprintf( life_, said_ );
-		          now_ = said_;
-		          memset(said_, 0, 4*KB*9);
+					fprintf( life_, said_ );
+					now_ = said_;
+					memset(said_, 0, 4*KB*9);
 	         }
 	         shutupTime_ = currentTime;
 	    }

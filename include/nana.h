@@ -38,7 +38,7 @@ namespace logging
 		
 		
 		/*
-	            LifeLength means the size of logging file
+	             LifeLength means the size of logging file
 		*/
 		enum LifeLength
 		{
@@ -50,7 +50,7 @@ namespace logging
 		/*
 		    born interface returns the singleton of nana
 		*/
-		static Nana *born( const std::string & cradle, int emotion, int breakTime, int lifeLength= 50*MB )
+		static Nana *born( const std::string & cradle, int emotion, int breakTime = 0, int lifeLength= 50*MB )
 		{
 			/*
 			    it's not necessary to use the double-check and mutex lock,
@@ -66,13 +66,17 @@ namespace logging
 		/*
 		    say interface means output the content to the logging file
 		*/
-		void say( int emotion, const char *toWho, const char *about, ...);
+		void say( int emotion, const char *toWho, int location, const char *about, ...);
 		bool is( int emotion ) { return emotion <= emotion_; }
 
 		/*
 		    nana dies,when she don't logging anything any more
     	        */
 		void die();
+                /*
+                  output as normal
+                */
+                void asNormal() { normal_ = true; }
 	private:
 		/*
 		    shutup interface means cache the content in memory,
@@ -96,11 +100,12 @@ namespace logging
 		int emotion_;
 		Life life_;
 		int breakTime_;
-		int lifeLength_;
+		unsigned long lifeLength_;
 		time_t shutupTime_;
 		char said_[4 * KB * 9];
 		char *now_;
 		char *end_;
+                bool normal_;
 	};
 }
 #endif
