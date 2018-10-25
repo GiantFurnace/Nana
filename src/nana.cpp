@@ -52,12 +52,12 @@ using logging::Nana;
 namespace logging
 {
     static pthread_mutex_t  GuardianAngel = PTHREAD_MUTEX_INITIALIZER;
-    static const char * Emotions[]={"__COMPLAIN__", "__PEACE__", "__HAPPY__"};
-    static const char * Normals[]={"__ERROR__", "__INFO__", "__DEBUG__"};
+    static const char * Emotions[]={"__ANGRY__", "__SHOUT__", "__PEACE__", "__HAPPY__"};
+    static const char * Normals[]={"__ERROR__", "__WARN__", "__INFO__", "__DEBUG__"};
     Nana* Nana :: nana_ = 0;
 
     Nana::Nana( const std::string & cradle, int emotion, int breakTime, int life )
-    :cradle_( cradle ), emotion_( emotion ), breakTime_( breakTime ), lifeLength_( life ),normal_(false)
+    :cradle_( cradle ), emotion_( emotion ), breakTime_( breakTime ), lifeLength_( life ), normal_(false)
 
     {
         life_ = fopen( cradle_.c_str(), "w");
