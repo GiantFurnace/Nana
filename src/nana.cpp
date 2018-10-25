@@ -97,7 +97,7 @@ namespace logging
         }
     }
     
-    unsigned long Nana::lifeLength()
+    inline unsigned long Nana::lifeLength()
     {
         if ( cradle_.empty() )
 	    return 0;
