@@ -103,7 +103,7 @@ namespace logging
 	/*
         * @note:nana dies,when she don't logging anything any more
     	*/
-	inline void die();
+	void die();
                 
 	/*
          * @note:output as normal
@@ -114,7 +114,7 @@ namespace logging
          * @note:shutup interface means cache the content in memory,
          * you need to configure the break time when construct nana
 	 */
-	inline void shutup();
+	void shutup();
 
     private:
 	Nana( const std::string & cradle, int emotion, int breakTime, int lifeLength );
@@ -122,7 +122,7 @@ namespace logging
 	Nana & operator=( const Nana & ) { return *this; }
 	~Nana() {;}
 	bool reborn();
-	unsigned long lifeLength();
+	inline unsigned long lifeLength();
     private:
 	static Nana * nana_;
 	std::string cradle_;
