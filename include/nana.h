@@ -96,7 +96,7 @@ namespace logging
 	/*
 	 * @note:say interface means output the content to the logging file
 	 */
-	void say( int emotion, const char *toWho, int location, const char *about, ...);
+	void say( int emotion, const char *toWho, const char *where, int location, const char *about, ...);
 	bool is( int emotion ) { return emotion <= emotion_; }
 
 	/*
