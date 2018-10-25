@@ -48,6 +48,9 @@ int main( int argc, char ** argv )
     (void) argc;
     (void) argv;
     Nana * nana = Nana::born( "nana.log", Nana::HAPPY, BREAK_TIME, LIFE_LENGTH );
+    /*
+    * @note:you can call nana->asNormal() to output DEBUG,INFO,ERROR instead of HAPPY,PEACE,COMPLAIN;
+    */
     //_LOG_OUTPUT(_DEBUG, "A girl named nana born in this world with %s emotion", "HAPPY");
     nana->say( Nana::HAPPY, __func__, __FILE__, __LINE__, 
                "A girl named nana born in this world with %s emotion", "HAPPY");
