@@ -14,7 +14,8 @@ Emotion of nana is the logging level like the common logging module
 ### Logging Level Map
 HAPPY->DEBUG<br/>
 PEACE->INFO<br/>
-COMPLAIN->ERROR<br/>
+SHOUT->WARN<br/>
+ANGRY->ERROR<br/>
 
 ## 3. Sample Code
 -----------
@@ -38,7 +39,8 @@ static const int LIFE_LENGTH = 1024*1024*10;
 * usefull macros for logging
 #define _DEBUG (Nana::HAPPY)
 #define _INFO  (Nana::PEACE)
-#define _ERROR (Nana::COMPLAIN)
+#define _WARN  (Nana::SHOUT)
+#define _ERROR (Nana::ANGRY)
 #define _LOG_OUTPUT(LEVEL,FORMAT,MESSAGE,...);\
 nana->say(LEVEL, __func__, __FILE__, __LINE__, FORMAT, MESSAGE, ##__VA_ARGS__);
 */
