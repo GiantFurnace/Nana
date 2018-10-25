@@ -100,7 +100,9 @@ namespace logging
     inline unsigned long Nana::lifeLength()
     {
         if ( cradle_.empty() )
+	{
 	    return 0;
+	}
 	struct stat lifeStat; 
 	if (stat(cradle_.c_str(), &lifeStat) < 0)
 	{    
