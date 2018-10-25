@@ -3,7 +3,7 @@
 ## 1. Abstract
 
 What nana means? find the answer if you really want to know about the "nana".<br/>
-Nana is actually a lightweight logging module,she has her personal emotion, as the folowing:HAPPY,PEACE,SHOUT,ANGRY.<br/>
+Nana is actually a lightweight logging module,she has her personal emotion, like the folowing:HAPPY,PEACE,SHOUT,ANGRY.<br/>
 Nana's Emotions equivalent to the logging level:DEBUG, INFO ,WARN, ERROR.<br/>  
 
 ## 2. Understand the emotion of Nana
