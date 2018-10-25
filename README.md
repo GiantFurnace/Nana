@@ -53,7 +53,7 @@ int main( int argc, char ** argv )
     
     /*
      * @note:you can call nana->asNormal() to output DEBUG,INFO,WARN,ERROR 
-       instead of HAPPY,PEACE,SHOUT,ANGRY;
+     * instead of HAPPY,PEACE,SHOUT,ANGRY;
      */
     
     //_LOG_OUTPUT(_DEBUG, "A girl named nana born in this world with %s emotion", "HAPPY");
