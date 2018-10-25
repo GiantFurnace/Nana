@@ -24,7 +24,8 @@ static const int LIFE_LENGTH = 1024*1024*10;
 
 #define _DEBUG (Nana::HAPPY)
 #define _INFO  (Nana::PEACE)
-#define _ERROR (Nana::COMPLAIN)
+#define _WARN  (Nana::SHOUT)
+#define _ERROR (Nana::ANGRY)
 
 #define _LOG_OUTPUT(LEVEL,FORMAT,MESSAGE,...);\
 nana->say(LEVEL, __func__, __FILE__, __LINE__, FORMAT, MESSAGE, ##__VA_ARGS__);
