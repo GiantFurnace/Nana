@@ -98,23 +98,23 @@ namespace logging
 	 * @note:say interface means output the content to the logging file
 	 */
 	void say( int emotion, const char *toWho, const char *where, int location, const char *about, ...);
-	bool is( int emotion ) { return emotion <= emotion_; }
+	inline bool is( int emotion ) const { return emotion <= emotion_; }
 
 	/*
         * @note:nana dies,when she don't logging anything any more
     	*/
-	void die();
+	inline void die();
                 
 	/*
          * @note:output as normal
          */
-        void asNormal() { normal_ = true; }
+        inline void asNormal() { normal_ = true; }
     private:
 	/*
          * @note:shutup interface means cache the content in memory,
          * you need to configure the break time when construct nana
 	 */
-	void shutup();
+	inline void shutup();
 
     private:
 	Nana( const std::string & cradle, int emotion, int breakTime, int lifeLength );
