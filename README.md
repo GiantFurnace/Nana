@@ -5,9 +5,10 @@
 What the Nana means? find the answer if you really want to know about the "nana".<br/>
 Guess me, catch me, hold me, love me, save me in your break heart, and you will finnally find me!<br/>
 So,what the Nana really is?<br/>
-Nana is actually a lightweight logging module instead of a beautifull girl<br/>
+Nana is actually a lightweight logging module instead of a beautifull girl.<br/>
+
 Nana can be a girl though, She is naughty, lovely and has her personal emotion, like the folowing:HAPPY,PEACE,SHOUT,ANGRY.<br/>
-Nana's Emotions equivalent to the logging level:DEBUG, INFO ,WARN, ERROR.<br/>  
+Emotions of Nana equivalent to the logging level:DEBUG, INFO ,WARN, ERROR.<br/>  
 
 ## 2. Understand the emotion of Nana
 
