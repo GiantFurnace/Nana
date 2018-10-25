@@ -1,15 +1,19 @@
-# Logging Module Nana
+# Nana:I'm in love and always will be
 ---
 ## 1. Abstract
 
-What nana means? find the answer if you really want to know about the "nana".<br/>
-Nana is actually a lightweight logging module,she has her personal emotion, like the folowing:HAPPY,PEACE,SHOUT,ANGRY.<br/>
+What the Nana means? find the answer if you really want to know about the "nana".<br/>
+Guess me, catch me, hold me, love me, save me in your break heart, and you will finnally find me!<br/>
+So,what the Nana really is?<br/>
+Nana is actually a lightweight logging module instead of a beautifull girl<br/>
+Nana can be a girl though, She is naughty, lovely and has her personal emotion, like the folowing:HAPPY,PEACE,SHOUT,ANGRY.<br/>
 Nana's Emotions equivalent to the logging level:DEBUG, INFO ,WARN, ERROR.<br/>  
 
 ## 2. Understand the emotion of Nana
 
-Make the logging personate.<br/> 
-Emotion of nana is the logging level like the common logging module
+Just make the logging personate.<br/> 
+I don't need the fucking dull logging any more!<br/>
+Emotion of nana is the logging level just like the common logging module
 
 ### Logging Level Map
 HAPPY->DEBUG<br/>
@@ -17,7 +21,7 @@ PEACE->INFO<br/>
 SHOUT->WARN<br/>
 ANGRY->ERROR<br/>
 
-## 3. Sample Code
+## 3. Detailed Sample Code
 -----------
 
 ``` 
