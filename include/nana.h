@@ -59,8 +59,8 @@ namespace logging
     public:
 	typedef FILE * Life;
 	/*
-        * @note:NanaEmotion defines the logging level
-	*/
+         * @note:NanaEmotion defines the logging level
+	 */
 	enum NanaEmotion
 	{
 	    ANGRY = 0,
@@ -69,21 +69,22 @@ namespace logging
 	    HAPPY = 3,
 	};	
 	
-	/*
-	 * @note:LifeLength means the size of logging file
+       /*
+	* @note:LifeLength means the size of logging file
         */
 	enum LifeLength
 	{
 	    KB = 1024,
 	    MB = ((KB)*(KB)),
 	};
+	    
 	public:
-	/*
+       /*
 	* @note:born interface returns the singleton of nana
 	*/
 	static Nana *born( const std::string & cradle, int emotion, int breakTime = 0, int lifeLength= 50*MB )
 	{
-	    /*
+	   /*
 	    * @note:it's not necessary to use the double-check and mutex lock,
 	    * construct nana in global.
 	    */
@@ -100,7 +101,7 @@ namespace logging
 	void say( int emotion, const char *toWho, const char *where, int location, const char *about, ...);
 	inline bool is( int emotion ) const { return emotion <= emotion_; }
 
-	/*
+       /*
         * @note:nana dies,when she don't logging anything any more
     	*/
 	void die();
