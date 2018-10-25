@@ -129,7 +129,7 @@ namespace logging
         return true;
     }
 
-    void Nana::say( int emotion,  const char * toWho, int location, const char *about, ... )
+    void Nana::say( int emotion,  const char * toWho, const char * where, int location, const char *about, ... )
     {
         if ( emotion <= emotion_ )
 	{
@@ -155,11 +155,11 @@ namespace logging
 	    int said;
             if ( ! normal_ )
             {
-                said = snprintf( speak, sizeof(speak),"%s%-9s [%s@%d]: ", timeBuffer, Emotions[emotion], toWho, location);
+                said = snprintf( speak, sizeof(speak),"%s%-9s [%s@%s:%d]: ", timeBuffer, Emotions[emotion], toWho, where, location);
             }
             else
             {
-                said = snprintf( speak, sizeof(speak),"%s%-9s [%s@%d]: ", timeBuffer, Normals[emotion], toWho, location );
+                said = snprintf( speak, sizeof(speak),"%s%-9s [%s@%s:%d]: ", timeBuffer, Normals[emotion], toWho, where, location );
             }
 	    said += vsnprintf( speak+said, sizeof(speak)-said, about, valist );
 	    char *prev = now_;	
