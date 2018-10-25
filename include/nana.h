@@ -63,9 +63,10 @@ namespace logging
 	*/
 	enum NanaEmotion
 	{
-	    COMPLAIN = 0,
-	    PEACE = 1,
-	    HAPPY = 2,
+	    ANGRY = 0,
+	    SHOUT = 1,
+	    PEACE = 2,
+	    HAPPY = 3,
 	};	
 	
 	/*
