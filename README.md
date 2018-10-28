@@ -7,7 +7,8 @@ Guess me, catch me, hold me, love me, save me in your break heart, and you will 
 So,what the Nana really is?<br/>
 Nana is actually a lightweight logging module instead of a [sexy](https://weibo.com/yui524?sudaref=www.baidu.com&display=0&retcode=6102) girl.<br/>
 <p><img width="505" height="305" src="./docs/images/bdyjy.jpg"></p>
-Nana can be a girl though, She is naughty, lovely and has her personal emotion, like the following:HAPPY,PEACE,SHOUT,ANGRY.<br/>
+Nana can be a girl though, She is naughty, lovely and has her personal emotion, like the following:
+HAPPY,PEACE,SHOUT,ANGRY.<br/>
 Emotions of Nana equivalent to the logging level:DEBUG, INFO ,WARN, ERROR.<br/>  
 
 ## 2. Understand the emotion of Nana
